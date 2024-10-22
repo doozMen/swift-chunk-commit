@@ -25,7 +25,7 @@
       "cwd": "${workspaceFolder:swift-chunk-commit}",
       "name": "Debug chunk-commit",
       "program": "${workspaceFolder:swift-chunk-commit}/.build/debug/chunk-commit",
-      "preLaunchTask": "swift: Build All"
+      "preLaunchTask": "swift: Build Debug chunk-commit"
     },
     {
       "type": "lldb",
@@ -34,7 +34,7 @@
       "cwd": "${workspaceFolder:swift-chunk-commit}",
       "name": "Release chunk-commit",
       "program": "${workspaceFolder:swift-chunk-commit}/.build/release/chunk-commit",
-      "preLaunchTask": "swift: Build All"
+      "preLaunchTask": "swift: Build Release chunk-commit"
     }
   ]
 }
