@@ -3,7 +3,7 @@
     {
       "type": "lldb",
       "request": "launch",
-      "args": ["setup-test"],
+      "args": ["-h"],
       "cwd": "${workspaceFolder:swift-chunk-commit}",
       "name": "Debug swift-chunk-commit",
       "program": "${workspaceFolder:swift-chunk-commit}/.build/debug/swift-chunk-commit",
