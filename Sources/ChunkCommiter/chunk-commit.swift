@@ -4,16 +4,22 @@ import Foundation
 package struct Chunk: AsyncParsableCommand {
   @Argument(help: "Define the target branch where you want to cherry-pick the commits")
   private var targetBranch: String
+  @Option private var cwd: String?
 
   package init() {}
 
   package func run() async throws {
-    try await chunk(onto: targetBranch)
+    try await chunk(onto: targetBranch, cwd: cwd)
   }
 }
 
-public func chunk(onto targetBranch: String) async throws {
-  // Ensure you're on a detached HEAD
+public func chunk(onto targetBranch: String, cwd: String?) async throws {
+  try await GitConfig.$cwd.withValue(cwd) {
+    try await _chunk(onto: targetBranch, cwd: cwd)
+  }
+}
+
+private func _chunk(onto targetBranch: String, cwd: String?) async throws {  // Ensure you're on a detached HEAD
   let branch = try await "git rev-parse --abbrev-ref HEAD".run()
   if branch != "HEAD" {
     throw GitScriptError.notDetachedHead
