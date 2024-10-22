@@ -1,11 +1,10 @@
 import ArgumentParser
 import Foundation
 
-// Define the target branch where you want to cherry-pick the commits
-let targetBranch = "target-branch-name"
+struct Chunk: AsyncParsableCommand {
+  @Argument(help: "Define the target branch where you want to cherry-pick the commits")
+  private var targetBranch: String
 
-@main
-struct ChunkCommit: AsyncParsableCommand {
   func run() async throws {
     // Ensure you're on a detached HEAD
     let branch = try await "git rev-parse --abbrev-ref HEAD".run()
