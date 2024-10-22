@@ -1,5 +1,5 @@
 {
-  "originHash" : "62c9eee4fd0becc42211c18bf788231df9151810545c9b8f446f602d5d57a893",
+  "originHash" : "9093d5699060e43c0cbcd35af7042ff9f9169ce40750ace68912cecbb4adecd1",
   "pins" : [
     {
       "identity" : "swift-argument-parser",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
         "version" : "1.5.0"
+      }
+    },
+    {
+      "identity" : "swift-cli-logger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/doozMen/swift-cli-logger.git",
+      "state" : {
+        "branch" : "1.0.1",
+        "revision" : "b42bbda08d17a84057180a637c4bb3411116d5b2"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "9cb486020ebf03bfa5b5df985387a14a98744537",
+        "version" : "1.6.1"
       }
     }
   ],
