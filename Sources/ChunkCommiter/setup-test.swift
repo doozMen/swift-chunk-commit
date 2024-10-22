@@ -4,11 +4,13 @@ import Logging
 
 private let logger = Logger(label: "swift-chunk-commit:setup-test")
 
-struct SetupTest: AsyncParsableCommand {
+package struct SetupTest: AsyncParsableCommand {
   @Option private var numberOfFiles: Int = 50
   @Option private var targetBranch: String = "test-from-detached"
 
-  func run() async throws {
+  package init() {}
+
+  package func run() async throws {
     try await "git checkout -b \(targetBranch)".run()
 
     print("Switch to detached HEAD state")
