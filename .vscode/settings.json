@@ -1,0 +1,11 @@
+{
+  "lldb.library": "/Library/Developer/Toolchains/swift-6.0.1-RELEASE.xctoolchain/System/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+  "lldb.launch.expressions": "native",
+  "swift.path": "/Library/Developer/Toolchains/swift-6.0.1-RELEASE.xctoolchain/usr/bin",
+  "terminal.integrated.env.osx": {
+    "PATH": "/Library/Developer/Toolchains/swift-6.0.1-RELEASE/usr/bin:${env:PATH}"
+  },
+  "swift.swiftEnvironmentVariables": {
+    "DEVELOPER_DIR": "/Applications/Xcode-16.0.0.app"
+  }
+}

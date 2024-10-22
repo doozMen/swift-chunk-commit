@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:swift-chunk-commit}",
+      "name": "Debug swift-chunk-commit",
+      "program": "${workspaceFolder:swift-chunk-commit}/.build/debug/swift-chunk-commit",
+      "preLaunchTask": "swift: Build Debug swift-chunk-commit"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:swift-chunk-commit}",
+      "name": "Release swift-chunk-commit",
+      "program": "${workspaceFolder:swift-chunk-commit}/.build/release/swift-chunk-commit",
+      "preLaunchTask": "swift: Build Release swift-chunk-commit"
+    }
+  ]
+}
