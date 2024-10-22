@@ -14,8 +14,8 @@ let package = Package(
     .executable(name: executable, targets: [executable]),
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-argument-parser", from: "1.5.0"),
-    .package(url: "https://github.com/doozMen/swift-cli-logger.git", branch: "1.0.1"),
+    .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
+    .package(url: "https://github.com/doozMen/swift-cli-logger.git", from: "1.0.2"),
   ],
   targets: [
     .target(
