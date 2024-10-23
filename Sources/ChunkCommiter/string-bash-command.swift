@@ -1,26 +1,29 @@
 import Foundation
+import Logging
 
-enum GitConfig {
-  @TaskLocal static var cwd: String?
+public enum CLIConfig {
+  @TaskLocal public static var cwd: String?
 }
+
+private let logger = Logger(label: "chunk-commit:bash+string")
 
 extension String {
 
   @discardableResult
-  func run() async throws -> String {
-    try await Task {
-      try runBashCommand(self, cwd: GitConfig.cwd ?? FileManager.default.currentDirectoryPath)
+  public func run() async throws -> String {
+    logger.trace("\u{001B}[0;32m\(self)\u{001B}[0m - [cwd: \(CLIConfig.cwd ?? "nil")]")
+    return try await Task {
+      return try runBashCommand(self, cwd: CLIConfig.cwd)
     }.value
   }
 }
 
-// Function to run git commands and capture their output
 @discardableResult
-func runBashCommand(_ command: String, cwd: String) throws -> String {
+private func runBashCommand(_ command: String, cwd: String?) throws -> String {
   let process = Process()
   process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
   process.arguments = ["bash", "-c", command]
-  process.currentDirectoryPath = cwd
+  process.currentDirectoryPath = cwd ?? FileManager.default.currentDirectoryPath
 
   let pipe = Pipe()
   process.standardOutput = pipe
@@ -30,12 +33,16 @@ func runBashCommand(_ command: String, cwd: String) throws -> String {
     try process.run()
     process.waitUntilExit()
   } catch {
-    throw GitScriptError.fileFetchError
+    throw ChunkCommitterError.cliCommandFailed(forCommand: command, error: error)
   }
 
   let data = pipe.fileHandleForReading.readDataToEndOfFile()
   guard let output = String(data: data, encoding: .utf8) else {
-    throw GitScriptError.fileFetchError
+    throw ChunkCommitterError.cliCommandFailed(forCommand: command)
+  }
+
+  if process.terminationStatus != EXIT_SUCCESS {
+    throw ChunkCommitterError.bash(command: command, output: output)
   }
 
   return output.trimmingCharacters(in: .whitespacesAndNewlines)
