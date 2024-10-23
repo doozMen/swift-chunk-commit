@@ -1,5 +1,5 @@
 {
-  "originHash" : "4559f8398c47809a5a2b45484c641b840981f533faf67e7428af0b115a806ae5",
+  "originHash" : "a81ccb2357a7c11bfa172bdabb30a9e1c5974c4669135b4e567ba46ea571e583",
   "pins" : [
     {
       "identity" : "swift-argument-parser",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
         "version" : "1.5.0"
-      }
-    },
-    {
-      "identity" : "swift-cli-logger",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/doozMen/swift-cli-logger.git",
-      "state" : {
-        "revision" : "500ff612f17ac1c8abac1fa863cb148883c024ac",
-        "version" : "1.0.2"
       }
     },
     {

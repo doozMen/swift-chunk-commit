@@ -15,14 +15,15 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
-    .package(url: "https://github.com/doozMen/swift-cli-logger.git", from: "1.0.2"),
+    .package(path: "~/Developer/swift-cli-logger"),
+    //    .package(url: "https://github.com/doozMen/swift-cli-logger.git", from: "1.0.2"),
   ],
   targets: [
     .target(
       name: lib,
       dependencies: [
         .product(name: "ArgumentParser", package: "swift-argument-parser"),
-        .product(name: "ClILogger", package: "swift-cli-logger"),
+        .product(name: "CLILogger", package: "swift-cli-logger"),
       ]),
     .executableTarget(
       name: executable,
