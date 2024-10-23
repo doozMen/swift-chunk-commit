@@ -15,8 +15,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
-    .package(path: "~/Developer/swift-cli-logger"),
-    //    .package(url: "https://github.com/doozMen/swift-cli-logger.git", from: "1.0.2"),
+    .package(url: "https://github.com/doozMen/swift-cli-logger.git", from: "2.0.0"),
   ],
   targets: [
     .target(
